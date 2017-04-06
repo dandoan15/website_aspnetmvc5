@@ -1,0 +1,179 @@
+﻿.MainLogo {
+  position: absolute;
+  top: -20px;
+  left: 5px;
+}
+
+.MainLogo img {
+  height: 161px;
+  width: 161px;
+}
+
+.loginbutton {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 90px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+	position: absolute;
+  top: 30px;
+	right: 150px;
+}
+
+.loginbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.loginbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.loginbutton:hover span {
+  padding-right: 25px;
+}
+
+.loginbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.cartbutton {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 90px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+	position: absolute;
+  top: 30px;
+	right: 25px;
+}
+
+.cartbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.cartbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.cartbutton:hover span {
+  padding-right: 25px;
+}
+
+.cartbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.footer {
+  position: relative;
+  padding-top: 20px;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  margin: 0 0 0 0;
+  background-color: #ff4c00;
+}
+
+.section-one {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+li.link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 250px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	    -ms-transform: translate3d(0%, 0, 0);
+	     -o-transform: translate3d(0%, 0, 0);
+	        transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+	padding: 15px 15px 80px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+	right: -320px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+	     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+	        transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+	right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  background-color: #ff4c00;
+	border: none;
+}
+
+.modal-header {
+	border-bottom-color: #ffffff;
+	background-color: #ff4c00;
+}
+
+.outter img {
+  height: 100px;
+  width: 100px;
+}
+
+.myModalLabel {
+  color: #000000;
+}
+
+.guest {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}

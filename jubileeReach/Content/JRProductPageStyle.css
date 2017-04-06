@@ -1,0 +1,114 @@
+﻿.brand  {
+   margin: 0px;
+   padding: 0px;
+   font-size: 40px;
+   color: #000000;
+}
+
+.type {
+   font-size: 30px;
+   margin: 0px;
+   padding: 0px;
+   color: #000000;
+}
+
+.size {
+   font-size:20px;
+   margin: 0px;
+   padding: 0px;
+   color: #000000;
+}
+
+.retail-price {
+  font-size:27px;
+  color: #d84800;
+}
+
+.actual-price {
+   font-size:27px;
+   margin: 0px;
+   display: inline-block;
+   color: #000000;
+}
+
+.description {
+   font-size:15px;
+   padding-bottom: 15px;
+   color: #000000;
+}
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 250px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	    -ms-transform: translate3d(0%, 0, 0);
+	     -o-transform: translate3d(0%, 0, 0);
+	        transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+	padding: 15px 15px 80px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+	right: -320px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+	     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+	        transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+	right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  background-color: #ff4c00;
+	border: none;
+}
+
+.modal-header {
+	border-bottom-color: #ffffff;
+	background-color: #ff4c00;
+}
+
+.outter img {
+  height: 100px;
+  width: 100px;
+}
+
+.myModalLabel {
+  color: #000000;
+}
+
+.guest {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+#demo {
+   margin: 0px;
+   padding: 0px;
+   font-size: 40px;
+   color: #000000;
+}
+
+.checkoutButton{
+    color:black;
+}

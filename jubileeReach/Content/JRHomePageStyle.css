@@ -1,0 +1,140 @@
+﻿body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 250px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	    -ms-transform: translate3d(0%, 0, 0);
+	     -o-transform: translate3d(0%, 0, 0);
+	        transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+	padding: 15px 15px 80px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+	right: -320px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+	     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+	        transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+	right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  background-color: #ff4c00;
+	border: none;
+}
+
+.modal-header {
+	border-bottom-color: #ffffff;
+	background-color: #ff4c00;
+}
+
+.outter img {
+  height: 100px;
+  width: 100px;
+}
+
+.myModalLabel {
+  color: #000000;
+}
+
+.guest {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+
+.Brand {
+   font-size:20px;
+   margin: 0px;
+   padding: 0px;
+   color: #000000;
+}
+
+.Category {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  color: #000000
+}
+
+.Size {
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  color: #000000;
+}
+
+.Price {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  color: #000000;
+}
+
+#featured {
+  background-color: white;
+  padding-bottom: 0px; 
+  margin-bottom: 0px;
+}
+
+h1.women-featured {
+  font-size: 40px;
+  color: #000000;
+}
+
+.titlePos {
+    left: 40%;
+}
+
+.item-image img {
+  top: 50px;
+}
+
+.carousel-inner{
+  width: 100%;
+  max-height: 500px;
+}
+
+#carousel-example-generic {
+  margin-top: -50px;
+  width: 100%;
+}
+
+#carousel-example-generic img {
+  width: 100%; 
+  height: 100%;
+}
+
+#designer {
+  background-color: white;
+  padding-left: 0px; 
+  padding-bottom: 0px; 
+  margin-top: 20px;
+  width: 100%;
+}

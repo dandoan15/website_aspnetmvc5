@@ -1,0 +1,51 @@
+﻿.main1
+{
+  font-size: 50px;
+  color: grey;
+  font-weight: bold;
+}
+
+.main2
+{
+  position: absolute;
+  left: 700px;
+  top: 180px;
+}
+
+.main3
+{
+  position: absolute;
+  left: 700px;
+  top: 500px;
+}
+
+.main4
+{
+  position: absolute;
+  left: 850px;
+  top: 640px;
+}
+
+.plainText
+{
+  width:450px;
+  font-size: 20px;
+  color: black;
+  font-weight: lighter;
+}
+
+.orangeHeading
+{
+  width: 300px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff4c00;
+}
+
+.greyHeading
+{
+  width: 300px;
+  font-size: 25px;
+  font-weight: bold;
+  color: grey;
+}

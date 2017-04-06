@@ -1,0 +1,166 @@
+﻿.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+	position: fixed;
+	margin: auto;
+	width: 250px;
+	height: 100%;
+	-webkit-transform: translate3d(0%, 0, 0);
+	    -ms-transform: translate3d(0%, 0, 0);
+	     -o-transform: translate3d(0%, 0, 0);
+	        transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+	padding: 15px 15px 80px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+	right: -320px;
+	-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+	   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+	     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+	        transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+	right: 0;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  background-color: #ff4c00;
+	border: none;
+}
+
+.modal-header {
+	border-bottom-color: #ffffff;
+	background-color: #ff4c00;
+}
+
+.outter img {
+  height: 100px;
+  width: 100px;
+}
+
+.myModalLabel {
+  color: #000000;
+}
+
+.guest {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Brand {
+   font-size:20px;
+   font-weight: bold;
+   margin: 0px;
+   padding: 0px;
+   color: black;
+}
+
+.Brand2 {
+   font-size:20px;
+   font-weight: bold;
+   margin: 0px;
+   padding: 0px;
+   color: black;
+}
+
+.Material {
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Material2 {
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+  color: black;
+}
+
+.Size {
+  color: black; 
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Category{
+  color: black; 
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Name{
+     color: black;
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Size2 {
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+  color: black;
+}
+
+.Price {
+  color: black;
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.Price2 {
+  font-size:18px;
+  margin: 0px;
+  padding: 0px;
+  color: black;
+}
+
+/* Main content */
+#page-content-wrapper {
+  width: 100%;
+  top: 175px;
+  position: absolute;
+  padding-left: 300px;
+}
+
+h1.bread-crumb {
+  padding-top: 20px;
+  font-size: 20px;
+  display: inline;
+  top: 20px;
+}
+
+h1.bread-crumb2 {
+  color: black;
+  font-size: 20px;
+  display: inline;
+}
+
+.image1 {
+    height: 100px; 
+    width: 100px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}

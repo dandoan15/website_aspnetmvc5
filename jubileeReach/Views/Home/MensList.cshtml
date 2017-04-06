@@ -1,0 +1,147 @@
+﻿
+
+@model IEnumerable<jubileeReach.Views.PRODUCT>
+
+@{
+    ViewBag.Title = "Mens List";
+}
+
+@*<link href="~/css/JRItemListPageStyle.css" rel="stylesheet" type="text/css">*@
+<link href="~/Content/JRItemListPageStyle.css" rel="stylesheet" type="text/css" />
+
+
+<DropDownList ID="image" runat="server" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="FetchImage">
+    <asp:ListItem Text="Select Image" Value="0" />
+</DropDownList>
+<hr />
+<asp:Image ID="Image1" runat="server" Visible="false" />
+
+@*<img runat="server" id="image" />*@
+
+<main class="cd-main-content">
+    <div class="cd-filter">
+        @*<form asp-action="Create" asp-controller="FilterController">*@
+        <form asp-action="MensList">
+            <div class="cd-filter-block">
+                <h4>Search</h4>
+                <div class="cd-filter-content">
+                    <input type="text" placeholder="Try color-1..." name="filterColor">
+                </div> <!-- cd-filter-content -->
+            </div> <!-- cd-filter-block -->
+
+            <div class="cd-filter-block">
+                <h4>Check boxes</h4>
+
+                <ul class="cd-filter-content cd-filters list">
+                    <li>
+                        <input class="filter" data-filter=".check1" type="checkbox" id="checkbox1" name="Blue" value="true">
+                        <label class="checkbox-label" for="checkbox1">Blue</label>
+                    </li>
+
+                    <li>
+                        <input class="filter" data-filter=".check2" type="checkbox" id="checkbox2" name="Green" value="true">
+                        <label class="checkbox-label" for="checkbox2">Green</label>
+                    </li>
+
+                    <li>
+                        <input class="filter" data-filter=".check3" type="checkbox" id="checkbox3" name="Gray" value="true">
+                        <label class="checkbox-label" for="checkbox3">Gray</label>
+                    </li>
+                </ul> <!-- cd-filter-content -->
+            </div> <!-- cd-filter-block -->
+            @*<div class="cd-filter-block">
+                    <h4>Select</h4>
+
+                    <div class="cd-filter-content">
+                        <div class="cd-select cd-filters">
+
+                            <div class="cd-filter-content">
+                                <div class="cd-select cd-filters">
+                                    <select class="filter" name="selectThis" id="selectThis">
+                                        <option value="">Choose an option</option>
+                                        <option value=".option1">Red</option>
+                                        <option value=".option2">Blue</option>
+                                        <option value=".option3">White</option>
+                                        <option value=".option4">Black</option>
+                                    </select>
+                                </div> <!-- cd-select -->
+                            </div> <!-- cd-filter-content -->
+                        </div> <!-- cd-select -->
+                    </div> <!-- cd-filter-content -->
+                </div> <!-- cd-filter-block -->*@
+
+            @*<div class="cd-filter-block">
+                    <h4>Radio buttons</h4>
+
+                    <ul class="cd-filter-content cd-filters list">
+                        <li>
+                            <input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
+                            <label class="radio-label" for="radio1">All</label>
+                        </li>
+
+                        <li>
+                            <input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
+                            <label class="radio-label" for="radio2">Choice 2</label>
+                        </li>
+
+                        <li>
+                            <input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
+                            <label class="radio-label" for="radio3">Choice 3</label>
+                        </li>
+                    </ul> <!-- cd-filter-content -->
+                </div> <!-- cd-filter-block -->*@
+
+            <div class="cd-filter-block">
+                <input type="submit" />
+            </div>
+        </form>
+        @*</form>*@
+
+        <a href="#0" class="cd-close">Close</a>
+    </div> <!-- cd-filter -->
+
+    <a href="#0" class="cd-filter-trigger">Filters</a>
+
+
+
+</main> <!-- cd-main-content -->
+<!-- Page content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <br><h1 class="text-muted bread-crumb"> SHOP </h1>
+        <h1 class="bread-crumb2">/ MEN /<a asp-action="MensList" asp-route-sortOrder="@ViewBag.SalePriceSortParm">@Html.DisplayNameFor(model => model.SALE_PRICE)</a></h1>
+        @*{int counter = 0;
+                @foreach (var item in Model){
+                    counter++;
+                }
+
+            } while (index < counter)
+                {*@
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 image1">
+                    @*<a asp-action="productDetail" asp-route-id="@item.PRODUCTID"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>*@
+                    <div class="Brand">
+                        @Html.DisplayFor(modelItem => item.BRAND)
+                    </div>
+
+                    @*<div class="Name"> @Html.DisplayFor(modelItem => item.CAT_NAME)</div>*@
+                    <div class="Name"> @Html.DisplayFor(modelItem => item.CAT_ID)</div>
+
+                    @*<div class="Size">
+                        @Html.DisplayFor(modelItem => item.SIZE)
+                    </div>*@
+
+                    <div class="Size">
+                        @Html.DisplayFor(modelItem => item.SIZE_ID)
+                    </div>
+
+                    <div class="Price">
+                        @Html.DisplayFor(modelItem => item.SALE_PRICE)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

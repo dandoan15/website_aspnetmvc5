@@ -1,0 +1,151 @@
+﻿body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.MainLogo {
+  position: absolute;
+  top: -65px;
+  left: 30px;
+}
+
+.searchBar {
+    width: 250px;
+    right: 0px;
+}
+
+.searchBarPos {
+    left: 335px; 
+}
+
+.MainLogo img {
+  height: 161px;
+  width: 161px;
+}
+
+.footer {
+  position: relative;
+  padding-top: 20px;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  margin: 0 0 0 0;
+  background-color: white;
+}
+
+.section-one {
+  color: #373737;
+  font-size: 12px;
+  text-align: center;
+}
+
+li.link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*.guest {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}*/
+
+#mainNavBar {
+    background-color: white;
+    top: -50px;
+    margin-top:125px;
+    border: none;
+}
+
+.userLinks {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.link {
+    color: #373737;
+    text-decoration: none; 
+    font-size: 16px; 
+    padding-right: 20px;
+}
+
+a:link {
+    text-decoration: none; 
+    color: #373737;
+}
+
+a:visited {
+    text-decoration: none; 
+    color: #373737;
+}
+
+a:hover {
+    text-decoration: none; 
+    color: #373737;
+}
+
+a:active {
+    text-decoration: none; 
+    color: #373737;
+}
+
+.fa {
+    padding: 10px;
+    right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    font-size: 30px;
+    width: 35px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+#policies {
+    padding-left: 50px;
+}
+
+hr {
+    border: none;
+    width: 90%;
+    height: 2px;
+    /* Set the hr color */
+    color: #808080; /* old IE */
+    background-color: #808080; /* Modern Browsers */
+}
+
+li.contact {
+    font-size: 14px;
+}
+
+.policyPos {
+    left: 250px; 
+    top: 85px;
+}
+
+a.policy {
+    padding-left: 20px;
+}
