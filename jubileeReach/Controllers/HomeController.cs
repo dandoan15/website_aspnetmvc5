@@ -121,25 +121,27 @@ namespace jubileeReach.Controllers
             //https://github.com/aspnet/EntityFramework/issues/6091
             //https://msdn.microsoft.com/en-us/library/bb311040.aspx
             //http://stackoverflow.com/questions/22368726/how-to-combine-two-models-into-a-single-model-and-pass-it-to-view-using-asp-net
-            //var productDetail = _context.PRODUCT.Where(m => m.PRODUCTID == id)
+            var productTable = db.PRODUCT.ToList();
+            var imageTable = db.IMAGES.ToList();
+            var sizeTable = db.SIZES.ToList();
 
-            //var productDetail = from singleProduct in _context.PRODUCT
-            //                    .Where(m => m.PRODUCTID == id)
-            //                    join images in _context.IMAGES on singleProduct.IMG_ID equals images.IMAGE_TABLE_ID
-            //                    join size in _context.SIZES on singleProduct.SIZE_ID equals size.SIZE_ID
-            //                    select new Product_Images_Sizes
-            //                    {
-            //                        BRAND = singleProduct.BRAND,
-            //                        SIZE_ID = singleProduct.SIZE_ID,
-            //                        SALE_PRICE = singleProduct.SALE_PRICE,
-            //                        ITEM_DESCRIPTION = singleProduct.ITEM_DESCRIPTION,
-            //                        IMG1 = images.IMG1,
-            //                        IMG2 = images.IMG2,
-            //                        IMG3 = images.IMG3,
-            //                        IMG4 = images.IMG4,
-            //                        SIZE = size.SIZE,
-            //                        PRODUCTID = singleProduct.PRODUCTID
-            //                    };
+            var productDetail = from singleProduct in productTable
+                                .Where(m => m.PRODUCTID == id)
+                                join images in db.IMAGES on singleProduct.IMG_ID equals images.IMAGE_TABLE_ID
+                                join size in db.SIZES on singleProduct.SIZE_ID equals size.SIZE_ID
+                                select new PRODUCT_IMAGES_SIZES
+                                {
+                                    BRAND = singleProduct.BRAND,
+                                    SIZE_ID = singleProduct.SIZE_ID,
+                                    SALE_PRICE = singleProduct.SALE_PRICE,
+                                    ITEM_DESCRIPTION = singleProduct.ITEM_DESCRIPTION,
+                                    IMG1 = images.IMG1,
+                                    IMG2 = images.IMG2,
+                                    IMG3 = images.IMG3,
+                                    IMG4 = images.IMG4,
+                                    SIZE = size.SIZE_NAME,
+                                    PRODUCTID = singleProduct.PRODUCTID
+                                };
 
             ////var test = _context.PRODUCT.Where(m => m.PRODUCTID == id)
             ////    .Include(Product => Product.IMAGES)
@@ -152,8 +154,8 @@ namespace jubileeReach.Controllers
             //}
 
             //return View(productDetail);
-            var list = db.PRODUCT.ToList();
-            return View();
+            //var list = db.PRODUCT.ToList();
+            return View(productDetail);
         }
 
         public ActionResult WomenList()
@@ -180,7 +182,8 @@ namespace jubileeReach.Controllers
                                 BRAND = women.BRAND,
                                 CAT_NAME = category.CAT_NAME,
                                 SIZE = size.SIZE_NAME,
-                                SALE_PRICE = women.SALE_PRICE
+                                SALE_PRICE = women.SALE_PRICE,
+                                COLOR_NAME = color.COLOR_NAME
                             };
 
             return View(womenList);

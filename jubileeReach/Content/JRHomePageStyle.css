@@ -73,6 +73,7 @@
    margin: 0px;
    padding: 0px;
    color: #000000;
+   font-weight: bold;
 }
 
 .Category {
@@ -106,6 +107,7 @@
 h1.women-featured {
   font-size: 40px;
   color: #000000;
+  padding-bottom: 15px;
 }
 
 .titlePos {
@@ -137,4 +139,10 @@ h1.women-featured {
   padding-bottom: 0px; 
   margin-top: 20px;
   width: 100%;
+}
+
+.banner img
+{
+  height: 500px;
+  width: 100%
 }

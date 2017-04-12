@@ -1,30 +1,43 @@
 ﻿.main1
 {
-  font-size: 50px;
-  color: grey;
+  font-size: 20px;
+  color: #373737;
   font-weight: bold;
 }
 
 .main2
 {
-  position: absolute;
-  left: 700px;
-  top: 180px;
+  position: relative;
+  color: black;
+  font-weight: bold;
 }
 
 .main3
 {
-  position: absolute;
-  left: 700px;
-  top: 500px;
+  position: relative;
 }
 
 .main4
 {
   position: absolute;
-  left: 850px;
-  top: 640px;
+  top: 400px;
+  left:800px;
 }
+
+.main5
+{
+  position: absolute;
+  top: 600px;
+  left:800px;
+}
+
+.main6
+{
+  position: absolute;
+  top: 700px;
+  left: 800px;
+}
+
 
 .plainText
 {
@@ -48,4 +61,18 @@
   font-size: 25px;
   font-weight: bold;
   color: grey;
+}
+
+#linebreak1
+{
+  position: absolute;
+  top:350px;
+  width: 100%;
+}
+
+#linebreak2
+{
+  position: absolute;
+  top: 100px;
+  width: 100%;
 }

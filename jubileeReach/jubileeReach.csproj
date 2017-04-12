@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PRODUCT_CATEGORY_SIZES_IMAGES.cs" />
+    <Compile Include="Models\PRODUCT_IMAGES_SIZES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\AspNetRole.cs" />
@@ -240,6 +241,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FilterStyle.css" />
+    <Content Include="Content\FooterOnlyStyle.css" />
     <Content Include="Content\genericCustomerSide.css" />
     <Content Include="Content\JRAdminHomePageStyle.css" />
     <Content Include="Content\JRAlertPageStyle.css" />
@@ -307,6 +309,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MenList.cshtml" />
+    <Content Include="Views\Home\WomenList.cshtml" />
+    <Content Include="Views\Home\productDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

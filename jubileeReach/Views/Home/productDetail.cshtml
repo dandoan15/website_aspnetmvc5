@@ -1,0 +1,74 @@
+﻿@model IEnumerable<jubileeReach.Models.PRODUCT_IMAGES_SIZES>
+
+@{
+    ViewData["Title"] = "Product Detail";
+}
+
+
+<div class="container-fluid">
+    @foreach (var item in Model.Take(1))
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive">
+
+                <div class="col-md-4">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG2)" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG3)" class="img-responsive">
+                </div>
+
+                <div class="col-md-4">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG4)" class="img-responsive">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="Brand">
+                            <strong>BRAND: </strong> @Html.DisplayFor(modelItem => item.BRAND)
+                        </div>
+                        <span class="type" id="demo2"><br></span><br>
+                        <div class="Size">
+                            <strong>SIZE: </strong> @Html.DisplayFor(modelItem => item.SIZE)
+                        </div>
+
+                    </div>
+                </div><!-- end row -->
+                <div class="row">
+                    <div class="col-md-12 bottom-rule">
+                        <div class="Price">
+                            <strong>SALE PRICE: </strong> @Html.DisplayFor(modelItem => item.SALE_PRICE) <br>
+                        </div>
+                        <div class="condition">
+                            <b>Condition: </b> @Html.DisplayFor(modelItem => item.QUALITY_NAME)
+                        </div>
+
+                    </div>
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="description">
+                            <br>
+                            ITEM DESCRIPTION: @Html.DisplayFor(modelItem => item.ITEM_DESCRIPTION)
+                        </span>
+                    </div>
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <a asp-action="Checkout" asp-route-id="@item.PRODUCTID"><button type="submit" class="checkoutButton">Purchase</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

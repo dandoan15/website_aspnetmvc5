@@ -7,17 +7,17 @@ using System.Data.Entity.Spatial;
 namespace jubileeReach.Models
 {
     [Table("PRODUCT")]
-    public partial class PRODUCT
+    public class PRODUCT
     {
         //internal IMAGE IMAGE;
-
+        [Key]
         public int PRODUCTID { get; set; }
 
         public int? DEP_ID { get; set; }
 
         public int? CAT_ID { get; set; }
 
-        public int? SIZE_ID { get; set; }
+        public int SIZE_ID { get; set; }
 
         public int? IMG_ID { get; set; }
 

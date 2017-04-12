@@ -1,21 +1,18 @@
 ﻿@model IEnumerable<jubileeReach.Models.PRODUCT_CATEGORY_SIZES_IMAGES>
 
 @{
-    ViewBag.Title = "Men List";
+    ViewBag.Title = "Women List";
 }
 
 @*<link href="~/css/JRItemListPageStyle.css" rel="stylesheet" type="text/css">*@
 <link href="~/Content/JRItemListPageStyle.css" rel="stylesheet" type="text/css" />
-
 
 <DropDownList ID="image" runat="server" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="FetchImage">
     <asp:ListItem Text="Select Image" Value="0" />
 </DropDownList>
 <hr />
 <asp:Image ID="Image1" runat="server" Visible="false" />
-
 @*<img runat="server" id="image" />*@
-
 
 <!-- Page content -->
 <div id="page-content-wrapper">
@@ -33,17 +30,14 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-3 image1">
-                    <a href="@Url.Action("productDetail", "Home", new { id = item.PRODUCTID })"><img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a> 
+                    <a asp-action="productDetail" asp-route-id="@item.PRODUCTID"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>
                     <div class="Brand">
                         @Html.DisplayFor(modelItem => item.BRAND)
                     </div>
-
                     <div class="Name"> @Html.DisplayFor(modelItem => item.CAT_NAME)</div>
-
                     <div class="Size">
                         @Html.DisplayFor(modelItem => item.SIZE)
                     </div>
-
                     <div class="Price">
                         @Html.DisplayFor(modelItem => item.SALE_PRICE)
                     </div>
@@ -52,3 +46,4 @@
         </div>
     </div>
 </div>
+

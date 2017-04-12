@@ -37,6 +37,7 @@ namespace jubileeReach.Models
         public virtual DbSet<Picture> Picture { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public DbSet<PRODUCT_CATEGORY_SIZES_IMAGES> PRODUCT_CATEGORY_SIZES_IMAGES { get; set; }
+        public DbSet<PRODUCT_IMAGES_SIZES> PRODUCT_IMAGES_SIZES { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
