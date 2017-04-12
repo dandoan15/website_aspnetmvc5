@@ -1,12 +1,11 @@
-namespace jubileeReach.Views
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+namespace jubileeReach.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    public partial class AspNetUserLogin
+public partial class AspNetUserLogin
     {
         [Key]
         [Column(Order = 0)]

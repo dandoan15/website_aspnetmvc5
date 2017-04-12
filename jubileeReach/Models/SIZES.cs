@@ -1,16 +1,15 @@
-namespace jubileeReach.Views
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+namespace jubileeReach.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
     [Table("SIZES")]
-    public partial class SIZE
+    public class SIZES
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SIZE()
+        public SIZES()
         {
             PRODUCTs = new HashSet<PRODUCT>();
         }
@@ -22,7 +21,7 @@ namespace jubileeReach.Views
 
         [Column("SIZE")]
         [StringLength(20)]
-        public string SIZE1 { get; set; }
+        public string SIZE_NAME { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTs { get; set; }

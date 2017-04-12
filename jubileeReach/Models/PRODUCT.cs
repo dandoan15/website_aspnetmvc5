@@ -1,11 +1,11 @@
-namespace jubileeReach.Views
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
 
+namespace jubileeReach.Models
+{
     [Table("PRODUCT")]
     public partial class PRODUCT
     {
@@ -29,9 +29,9 @@ namespace jubileeReach.Views
         [StringLength(20)]
         public string BRAND { get; set; }
 
-        public decimal? RETAIL_PRICE { get; set; }
+        public decimal RETAIL_PRICE { get; set; }
 
-        public decimal? SALE_PRICE { get; set; }
+        public decimal SALE_PRICE { get; set; }
 
         public int? QUAL_ID { get; set; }
 
@@ -47,14 +47,14 @@ namespace jubileeReach.Views
 
         public virtual CATEGORY CATEGORY { get; set; }
 
-        public virtual COLOR COLOR { get; set; }
+        public virtual COLORS COLOR { get; set; }
 
         public virtual DEPARTMENT DEPARTMENT { get; set; }
 
-        public virtual IMAGE IMAGE { get; set; }
+        public virtual IMAGES IMAGE { get; set; }
 
         public virtual QUALITY QUALITY { get; set; }
 
-        public virtual SIZE SIZE { get; set; }
+        public virtual SIZES SIZE { get; set; }
     }
 }

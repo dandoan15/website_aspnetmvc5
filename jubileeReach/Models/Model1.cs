@@ -1,10 +1,9 @@
-namespace jubileeReach.Views
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-
+using System;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+namespace jubileeReach.Models
+{ 
     public partial class Model1 : DbContext
     {
         public Model1()
@@ -13,33 +12,35 @@ namespace jubileeReach.Views
         }
 
         public virtual DbSet<C__EFMigrationsHistory> C__EFMigrationsHistory { get; set; }
-        public virtual DbSet<ACCOUNT> ACCOUNTS { get; set; }
+        public virtual DbSet<ACCOUNT> ACCOUNT { get; set; }
         public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
-        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<COLOR> COLORS { get; set; }
+        public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+        public virtual DbSet<COLORS> COLORS { get; set; }
         public virtual DbSet<demoTable> demoTables { get; set; }
         public virtual DbSet<DEP_LINKER> DEP_LINKER { get; set; }
-        public virtual DbSet<DEPARTMENT> DEPARTMENTs { get; set; }
-        public virtual DbSet<IMAGE> IMAGES { get; set; }
+        public virtual DbSet<DEPARTMENT> DEPARTMENT { get; set; }
+        public virtual DbSet<IMAGES> IMAGES { get; set; }
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
+        public virtual DbSet<PRODUCT> PRODUCT { get; set; }
         public virtual DbSet<PURCHASE_ORDER> PURCHASE_ORDER { get; set; }
-        public virtual DbSet<PURCHASEDEMO> PURCHASEDEMOes { get; set; }
-        public virtual DbSet<QUALITY> QUALITies { get; set; }
+        public virtual DbSet<PURCHASEDEMO> PURCHASEDEMO { get; set; }
+        public virtual DbSet<QUALITY> QUALITY { get; set; }
         public virtual DbSet<SIZE_GROUP> SIZE_GROUP { get; set; }
-        public virtual DbSet<SIZE> SIZES { get; set; }
+        public virtual DbSet<SIZES> SIZES { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Table> Tables { get; set; }
-        public virtual DbSet<Picture> Pictures { get; set; }
+        public virtual DbSet<Table> Table { get; set; }
+        public virtual DbSet<Picture> Picture { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public DbSet<PRODUCT_CATEGORY_SIZES_IMAGES> PRODUCT_CATEGORY_SIZES_IMAGES { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ACCOUNT>()
                 .Property(e => e.FIRST_NAME)
                 .IsUnicode(false);
@@ -84,7 +85,7 @@ namespace jubileeReach.Views
                 .Property(e => e.CAT_NAME)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<COLOR>()
+            modelBuilder.Entity<COLORS>()
                 .Property(e => e.COLOR_NAME)
                 .IsUnicode(false);
 
@@ -144,7 +145,7 @@ namespace jubileeReach.Views
                 .HasForeignKey(e => e.DEP_NUM)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<IMAGE>()
+            modelBuilder.Entity<IMAGES>()
                 .HasMany(e => e.PRODUCTs)
                 .WithOptional(e => e.IMAGE)
                 .HasForeignKey(e => e.IMG_ID);
@@ -207,8 +208,8 @@ namespace jubileeReach.Views
                 .WithOptional(e => e.SIZE_GROUP1)
                 .HasForeignKey(e => e.SIZE_GROUP);
 
-            modelBuilder.Entity<SIZE>()
-                .Property(e => e.SIZE1)
+            modelBuilder.Entity<SIZES>()
+                .Property(e => e.SIZE_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Picture>()

@@ -205,6 +205,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PRODUCT_CATEGORY_SIZES_IMAGES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\AspNetRole.cs" />
@@ -214,13 +215,13 @@
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\AspNetUserToken.cs" />
     <Compile Include="Models\CATEGORY.cs" />
-    <Compile Include="Models\COLOR.cs" />
+    <Compile Include="Models\COLORS.cs" />
     <Compile Include="Models\C__EFMigrationsHistory.cs" />
     <Compile Include="Models\database_firewall_rules.cs" />
     <Compile Include="Models\demoTable.cs" />
     <Compile Include="Models\DEPARTMENT.cs" />
     <Compile Include="Models\DEP_LINKER.cs" />
-    <Compile Include="Models\IMAGE.cs" />
+    <Compile Include="Models\IMAGES.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Picture.cs" />
@@ -228,7 +229,7 @@
     <Compile Include="Models\PURCHASEDEMO.cs" />
     <Compile Include="Models\PURCHASE_ORDER.cs" />
     <Compile Include="Models\QUALITY.cs" />
-    <Compile Include="Models\SIZE.cs" />
+    <Compile Include="Models\SIZES.cs" />
     <Compile Include="Models\SIZE_GROUP.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\Table.cs" />
@@ -305,7 +306,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\MensList.cshtml" />
+    <Content Include="Views\Home\MenList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

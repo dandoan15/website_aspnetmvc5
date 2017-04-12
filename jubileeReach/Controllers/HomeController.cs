@@ -1,4 +1,4 @@
-﻿using jubileeReach.Views;
+﻿using jubileeReach.Models;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
@@ -49,27 +49,31 @@ namespace jubileeReach.Controllers
         }
 
        // public ActionResult MensList(string filterColor, bool Blue, bool Green, bool Gray, string sortOrder)
-        public ActionResult MensList()
+        public ActionResult MenList()
         {
 
             //ViewData["SalePriceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
-
-            //var mensList = from mens in _context.PRODUCT
-            //            .Where(m => m.DEP_ID.Equals(1) && m.IS_AVAILABLE == true)
-            //                join category in _context.CATEGORY on mens.CAT_ID equals category.CAT_ID
-            //                join size in _context.SIZES on mens.SIZE_ID equals size.SIZE_ID
-            //                join image in _context.IMAGES on mens.IMG_ID equals image.IMAGE_TABLE_ID
-            //                join color in _context.COLORS on mens.COLOR_ID equals color.COLOR_ID
-            //                select new PRODUCT_CATEGORY_SIZES_IMAGES
-            //                {
-            //                    PRODUCTID = mens.PRODUCTID,
-            //                    IMG1 = image.IMG1,
-            //                    BRAND = mens.BRAND,
-            //                    CAT_NAME = category.CAT_NAME,
-            //                    SIZE = size.SIZE,
-            //                    SALE_PRICE = mens.SALE_PRICE,
-            //                    COLOR_NAME = color.COLOR_NAME
-            //                };
+            var productTable = db.PRODUCT.ToList();
+            var categoryTable = db.CATEGORY.ToList();
+            var sizeTable = db.SIZES.ToList();
+            var imageTable = db.IMAGES.ToList();
+            var colorTable = db.COLORS.ToList();
+            var mensList = from mens in productTable
+                           .Where(m => m.DEP_ID.Equals(1) && m.IS_AVAILABLE == true)
+                           join category in categoryTable on mens.CAT_ID equals category.CAT_ID
+                           join size in sizeTable on mens.SIZE_ID equals size.SIZE_ID
+                           join image in imageTable on mens.IMG_ID equals image.IMAGE_TABLE_ID
+                           join color in colorTable on mens.COLOR_ID equals color.COLOR_ID
+                           select new PRODUCT_CATEGORY_SIZES_IMAGES
+                           {
+                               PRODUCTID = mens.PRODUCTID,
+                               IMG1 = image.IMG1,
+                               BRAND = mens.BRAND,
+                               CAT_NAME = category.CAT_NAME,
+                               SIZE = size.SIZE_NAME,
+                               SALE_PRICE = mens.SALE_PRICE,
+                               COLOR_NAME = color.COLOR_NAME
+                           };
 
             //if (!String.IsNullOrWhiteSpace(filterColor))
             //{
@@ -99,8 +103,8 @@ namespace jubileeReach.Controllers
             //}
 
             //return View(mensList);
-            var list = db.PRODUCTs.ToList();
-            return View(list);
+            //var list = db.PRODUCT.ToList();
+            return View(mensList);
         }
 
         // GET: PRODUCTs/Details/5
@@ -148,32 +152,38 @@ namespace jubileeReach.Controllers
             //}
 
             //return View(productDetail);
-
+            var list = db.PRODUCT.ToList();
             return View();
         }
 
-        public ActionResult WomensList()
+        public ActionResult WomenList()
         {
+            var productTable = db.PRODUCT.ToList();
+            var categoryTable = db.CATEGORY.ToList();
+            var sizeTable = db.SIZES.ToList();
+            var imageTable = db.IMAGES.ToList();
+            var colorTable = db.COLORS.ToList();
+
             //var womens = from s in _context.PRODUCT select s;
             //var womens = _context.PRODUCT.Where(b => b.DEP_ID.Equals(2));
             // implement store procedure for getAllItems
-            //var womensList = from womens in _context.PRODUCT
-            //            .Where(m => m.DEP_ID.Equals(2) && m.IS_AVAILABLE == true)
-            //                    join category in _context.CATEGORY on womens.CAT_ID equals category.CAT_ID
-            //                    join size in _context.SIZES on womens.SIZE_ID equals size.SIZE_ID
-            //                    join image in _context.IMAGES on womens.IMG_ID equals image.IMAGE_TABLE_ID
-            //                    select new PRODUCT_CATEGORY_SIZES_IMAGES
-            //                    {
-            //                        PRODUCTID = womens.PRODUCTID,
-            //                        IMG1 = image.IMG1,
-            //                        BRAND = womens.BRAND,
-            //                        CAT_NAME = category.CAT_NAME,
-            //                        SIZE = size.SIZE,
-            //                        SALE_PRICE = womens.SALE_PRICE
-            //                    };
+            var womenList = from women in productTable
+                            .Where(m => m.DEP_ID.Equals(2) && m.IS_AVAILABLE == true)
+                            join category in categoryTable on women.CAT_ID equals category.CAT_ID
+                            join size in sizeTable on women.SIZE_ID equals size.SIZE_ID
+                            join image in imageTable on women.IMG_ID equals image.IMAGE_TABLE_ID
+                            join color in colorTable on women.COLOR_ID equals color.COLOR_ID
+                            select new PRODUCT_CATEGORY_SIZES_IMAGES
+                            {
+                                PRODUCTID = women.PRODUCTID,
+                                IMG1 = image.IMG1,
+                                BRAND = women.BRAND,
+                                CAT_NAME = category.CAT_NAME,
+                                SIZE = size.SIZE_NAME,
+                                SALE_PRICE = women.SALE_PRICE
+                            };
 
-            //return View(womensList);
-            return View();
+            return View(womenList);
         }
 
         public ActionResult Product()

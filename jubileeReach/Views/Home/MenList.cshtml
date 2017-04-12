@@ -1,6 +1,4 @@
-﻿
-
-@model IEnumerable<jubileeReach.Views.PRODUCT>
+﻿@model IEnumerable<jubileeReach.Models.PRODUCT_CATEGORY_SIZES_IMAGES>
 
 @{
     ViewBag.Title = "Mens List";
@@ -121,20 +119,15 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-3 image1">
-                    @*<a asp-action="productDetail" asp-route-id="@item.PRODUCTID"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>*@
+                    <a asp-action="productDetail" asp-route-id="@item.PRODUCTID"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>
                     <div class="Brand">
                         @Html.DisplayFor(modelItem => item.BRAND)
                     </div>
 
-                    @*<div class="Name"> @Html.DisplayFor(modelItem => item.CAT_NAME)</div>*@
-                    <div class="Name"> @Html.DisplayFor(modelItem => item.CAT_ID)</div>
-
-                    @*<div class="Size">
-                        @Html.DisplayFor(modelItem => item.SIZE)
-                    </div>*@
+                    <div class="Name"> @Html.DisplayFor(modelItem => item.CAT_NAME)</div>
 
                     <div class="Size">
-                        @Html.DisplayFor(modelItem => item.SIZE_ID)
+                        @Html.DisplayFor(modelItem => item.SIZE)
                     </div>
 
                     <div class="Price">
