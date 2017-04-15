@@ -1,0 +1,263 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="MainLogo">
+                    <a href="JRAdminHomePage.html" title="Jubilee REACH Online Thrift Store">
+                        <img src="https://scontent-sjc2-1.cdninstagram.com/t51.2885-19/s320x320/12819067_809263472511165_1860689997_a.jpg" class="img-responsive">
+                    </a>
+                </div>
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <!-- Menu Items -->
+                        <div class="collapse navbar-collapse" id="mainNavBar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">MENS</a></li>
+                                <li><a href="#">WOMENS</a></li>
+                                <li><a href="#">KIDS</a></li>
+
+                                <!-- drop down menu -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OTHER <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Furniture</a></li>
+                                        <li><a href="#">Electronics</a></li>
+                                        <li><a href="#">Home Appliances</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">|</a></li>
+                                <li><a href="#">ABOUT</a></li>
+                                <li><a href="#">BLOG</a></li>
+                                <li><a href="#">NEWSLETTER</a></li>
+                                <li><a href="#">VOLUNTEER</a></li>
+                                <li><a href="#">DONATE</a></li>
+                                <li><a href="#">|</a></li>
+                            </ul>
+
+                            <div class="col-sm-3 col-md-3">
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" name="q">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <button type="button" class="loginbutton"><span>Login</span></button>
+                <button type="button" class="cartbutton" data-toggle="modal" data-target="#myModal"><span>Cart</span></button>
+
+                <div id="carousel-example-generic" class="item carousel slide row" data-ride="carousel">
+                    <div class="container-fluid">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="https://static1.squarespace.com/static/54189466e4b000df8f1f0e14/t/545ab87be4b032c17949c85c/1415231639187/11-12-8+Championships-11.jpg?format=2500w" data-holder-rendered="true">
+                            </div>
+                            <div class="item">
+                                <img src="https://static1.squarespace.com/static/54189466e4b000df8f1f0e14/t/56ddc1e4d210b8f816e83505/1457373677865/11-11-18+Ianni-29.jpg?format=2500w" data-holder-rendered="true">
+                            </div>
+                            <div class="item">
+                                <img src="https://static1.squarespace.com/static/54189466e4b000df8f1f0e14/t/545ab288e4b0a17b751570e6/1415230092840/IMG_8984.jpg?format=1500w" data-holder-rendered="true">
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Women's Featured Items Portion -->
+                <div class="container-fluid">
+                    <div class="jumbotron">
+                        <span class="women-header"><strong>WOMEN'S</strong></span><br>
+                        <span class="women-featured">Featured Items</span>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <br><span class="Brand">BRAND:<br></span>
+                                <span class="Material">Cloth<br></span>
+                                <span class="Size">Size: S<br></span>
+                                <span class="Price">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><span class="Brand">BRAND:<br></span>
+                                <span class="Material">Cloth<br></span>
+                                <span class="Size">Size: S<br></span>
+                                <span class="Price">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><span class="Brand">BRAND:<br></span>
+                                <span class="Material">Cloth<br></span>
+                                <span class="Size">Size: S<br></span>
+                                <span class="Price">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><span class="Brand">BRAND:<br></span>
+                                <span class="Material">Cloth<br></span>
+                                <span class="Size">Size: S<br></span>
+                                <span class="Price">$9.99<br></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Men's Featured Item Section -->
+                <div class="jumbotron mensjumbotron">
+                    <div class="container-fluid">
+                        <span class="men-header"><strong>MEN'S </strong></span><br>
+                        <span class="men-featured">Featured Items</span>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-3">
+                                <br><img src="http://www.metalclayfindings.com/images/productimages/small/2800245.jpg" class="img-responsive">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <br><br><span class="Brand2">BRAND:<br></span>
+                                <span class="Material2">Cloth<br></span>
+                                <span class="Size2">Size: S<br></span>
+                                <span class="Price2">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><br><span class="Brand2">BRAND:<br></span>
+                                <span class="Material2">Cloth<br></span>
+                                <span class="Size2">Size: S<br></span>
+                                <span class="Price2">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><br><span class="Brand2">BRAND:<br></span>
+                                <span class="Material2">Cloth<br></span>
+                                <span class="Size2">Size: S<br></span>
+                                <span class="Price2">$9.99<br></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <br><br><span class="Brand2">BRAND:<br></span>
+                                <span class="Material2">Cloth<br></span>
+                                <span class="Size2">Size: S<br></span>
+                                <span class="Price2">$9.99<br></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row bottom-rule">
+                            <div class="col-sm-3">
+                                <ul class="section-one" style="list-style-type:none" id="section-one">
+                                    <li><strong>Jubilee REACH</strong></li>
+                                    <li>2301 148th Ave NE</li>
+                                    <li>Bellevue, WA 98005 </li>
+                                    <li>(425) 749-3346</li>
+                                    <li>jrtsadmin@jubileereach.org</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <ul class="section-one" style="list-style-type:none" id="section-one">
+                                    <li><strong>HOURS</strong></li>
+                                    <li>Mon.&ensp;-&ensp;Fri.&emsp;9:30AM to 8PM</li>
+                                    <li>Sat.&emsp;&emsp;&emsp;&emsp;10:30AM to 8PM</li>
+                                    <li>Sun.&emsp;&emsp;&emsp;&emsp;11AM to 5PM</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <ul class="section-one" style="list-style-type:none" id="section-one">
+                                    <li><strong>STAY UPDATED</strong></li>
+                                    <li class="link"><a href="https://www.facebook.com/JubileeREACHThriftStore/">Facebook</a></li>
+                                    <li class="link"><a href="https://twitter.com/jubileereach?lang=en">Twitter</a></li>
+                                    <li class="link"><a href="https://www.instagram.com/jrthriftstore/">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- end container -->
+                </footer>
+
+                <!-- Modal -->
+                <div class="modal right fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div class="col-md-12 col-xs-12" align="center">
+                                    <div class="outter"><img src="http://www.clipartkid.com/images/207/white-letter-g-clip-art-at-clker-com-vector-clip-art-online-royalty-pW95aF-clipart.png" class="img-circle" id="picture"></div>
+                                </div>
+                                <p class="guest"><strong>Hello!</strong></p>
+                                <p class="guest">Guest</p>
+                            </div>
+                            <div class="modal-body">
+                            </div><!-- modal-content -->
+                        </div><!-- modal-dialog -->
+                    </div><!-- modal -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

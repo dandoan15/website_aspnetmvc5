@@ -1,13 +1,15 @@
-﻿
+﻿@model IEnumerable<jubileeReach.Models.PURCHASEINFO>
+
 @{
     ViewBag.Title = "Confirmation";
     Layout = "~/Views/Shared/FooterOnly.cshtml";
 }
 
-<h2>Confirmation</h2>
 
-<p> HELLO WORLD!</p>
-@*<div class="demo">
+<link href="~/Content/JROrderConfirmationStyle.css" rel="stylesheet" type="text/css">
+
+
+<div class="demo">
     @foreach (var item in Model)
     {
         <div class="container">
@@ -108,6 +110,6 @@
             </div>
         </div>
     }
-</div>*@
+</div>
 
 <script src="js/bootstrap.min.js"></script>

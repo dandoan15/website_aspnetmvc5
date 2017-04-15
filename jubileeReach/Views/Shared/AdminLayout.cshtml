@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/site.css" />
+
+    <link href="~/Content/JRAdminHomePageStyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/JRAlertPageStyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/JRHomePageStyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/JRInventoryAdjustmentPageStyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/JRManageAccountsPageStyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <br>
+                <br>
+                <h1><strong>Hello, Admin</strong></h1>
+                <br>
+                <a asp-area="" asp-controller="Admin" asp-action="Alerts" class="alert">Alerts<span class="badge">1</span></a>
+                <li class="other"><a asp-area="" asp-controller="Admin" asp-action="InventoryAdjustment">Inventory Adjustment</a></li>
+                <li class="other"><a asp-area="" asp-controller="Admin" asp-action="ManageAccounts">Manage Accounts</a></li>
+                <li class="other"><a href="#"><strong>Edit Pages</strong></a></li>
+                <li class="subpage"><a asp-area="" asp-controller="Admin" asp-action="Index"><strong> &nbsp; Landing Page</strong></a></li>
+                <li class="subpage"><a href="#">&nbsp; Page 1</a></li>
+                <li class="subpage"><a href="#">&nbsp; Page 2</a></li>
+                <li class="subpage"><a href="#">&nbsp; Page 3</a></li>
+            </ul>
+        </div>
+
+        @RenderBody()
+
+
+</body>
+</html>

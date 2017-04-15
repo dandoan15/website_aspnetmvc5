@@ -213,24 +213,25 @@ namespace jubileeReach.Controllers
 
         public ActionResult Confirmation(PURCHASEDEMO test)
         {
-            //var info = from product in _context.PRODUCT
-            //            .Where(m => m.PRODUCTID.Equals(test.PRODUCTID))
-            //            select new PURCHASEINFO
-            //            {
-            //                ORDER_ID = test.ORDER_ID,
-            //                FIRST_NAME = test.FIRST_NAME,
-            //                PICK_UP_TIME = test.PICK_UP_TIME,
-            //                DATE_PURCHASED = test.DATE_PURCHASED,
-            //                LAST_NAME = test.LAST_NAME,
-            //                EMAIL = test.EMAIL,
-            //                PHONENUMBER = test.PHONENUMBER,
-            //                SALE_PRICE = product.SALE_PRICE,
-            //                BRAND = product.BRAND,
-            //                ITEM_DESCRIPTION = product.ITEM_DESCRIPTION
-            //            };
+            var productTable = db.PRODUCT.ToList();
+            var info = from product in productTable
+                        .Where(m => m.PRODUCTID.Equals(test.PRODUCTID))
+                       select new PURCHASEINFO
+                       {
+                           ORDER_ID = test.ORDER_ID,
+                           FIRST_NAME = test.FIRST_NAME,
+                           PICK_UP_TIME = Convert.ToDateTime(test.PICK_UP_TIME),
+                           DATE_PURCHASED = Convert.ToDateTime(test.DATE_PURCHASED),
+                           LAST_NAME = test.LAST_NAME,
+                           EMAIL = test.EMAIL,
+                           PHONENUMBER = test.PHONENUMBER,
+                           SALE_PRICE = product.SALE_PRICE,
+                           BRAND = product.BRAND,
+                           ITEM_DESCRIPTION = product.ITEM_DESCRIPTION
+                       };
 
-            //return View(info);
-            return View();
+            return View(info);
+            //return View();
         }
 
         public ActionResult Checkout(int id)
@@ -245,80 +246,74 @@ namespace jubileeReach.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Checkout(string firstName, string lastName, string email, string phoneNumber, int? id)
         {
+            //https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand(v=vs.110).aspx#Examples 
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["jubileeReachDB"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand();
+                command.CommandText = "dbo.markItemNotAvailable";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@productID", System.Data.SqlDbType.Int) { Value = (int)id });
+                command.Connection = connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                command.Dispose();
+            }
 
-            //if (ModelState.IsValid)
+            var newPurchaseOrder = new PURCHASEDEMO();
+            newPurchaseOrder.FIRST_NAME = firstName;
+            newPurchaseOrder.LAST_NAME = lastName;
+            newPurchaseOrder.EMAIL = email;
+            newPurchaseOrder.PHONENUMBER = phoneNumber;
+            newPurchaseOrder.PRODUCTID = (int)id;
+
+            db.PURCHASEDEMO.Add(newPurchaseOrder);
+            db.SaveChanges();
+
+
+            //http://www.mimekit.net/docs/html/M_MailKit_Net_Smtp_SmtpClient_Connect_1.htm
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Dan", "dandoan15@gmail.com"));
+            message.To.Add(new MailboxAddress(firstName, email));
+            message.Subject = "Purchase Order: " + id + "Jubilee REACH";
+            message.Body = new TextPart("plain")
+            {
+                Text = "Hi " + firstName + " " + lastName + ", \n Thank you for your purchase!"
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                client.Connect("smtp.gmail.com", 587, false);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                client.Authenticate("dandoan15", "renton2011");
+                client.Send(message);
+                client.Disconnect(true);
+            };
+
+
+
+            ////Set the html version of the message text
+            //builder.HtmlBody = string.Format(@"<p>Hey Alice,<br>
+            //<p>What are you up to this weekend? Monica is throwing one of her parties on
+            //Saturday and I was hoping you could make it.<br>
+            //<p>Will you be my +1?<br>
+            //<p>-- Joey<br>");
+
+            //message.Body = builder.ToMessageBody();
+
+            //using (var client = new SmtpClient())
             //{
-            //    DbCommand cmd = _context.Database.GetDbConnection().CreateCommand();
+            //    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            //    client.Connect("smtp.gmail.com", 587, false);
+            //    client.AuthenticationMechanisms.Remove("XOAUTH2");
+            //    client.Authenticate("dandoan15", "renton2011");
+            //    client.Send(message);
+            //    client.Disconnect(true);
+            //};
 
-            //    cmd.CommandText = "dbo.markItemNotAvailable";
-            //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-            //    cmd.Parameters.Add(new SqlParameter("@productID", System.Data.SqlDbType.Int) { Value = (int)id });
-
-            //    if (cmd.Connection.State != ConnectionState.Open)
-            //    {
-            //        cmd.Connection.Open();
-            //    }
-
-            //    cmd.ExecuteNonQuery();
-
-            //    var newPurchaseOrder = new PURCHASEDEMO();
-            //    newPurchaseOrder.FIRST_NAME = firstName;
-            //    newPurchaseOrder.LAST_NAME = lastName;
-            //    newPurchaseOrder.EMAIL = email;
-            //    newPurchaseOrder.PHONENUMBER = phoneNumber;
-            //    newPurchaseOrder.PRODUCTID = (int)id;
-
-            //    _context.PURCHASEDEMO.Add(newPurchaseOrder);
-            //    _context.SaveChanges();
-
-
-            //    //http://www.mimekit.net/docs/html/M_MailKit_Net_Smtp_SmtpClient_Connect_1.htm
-            //    var message = new MimeMessage();
-            //    message.From.Add(new MailboxAddress("Dan", "dandoan15@gmail.com"));
-            //    message.To.Add(new MailboxAddress(firstName, email));
-            //    message.Subject = "Purchase Order: " + id + "Jubilee REACH";
-            //    message.Body = new TextPart("plain")
-            //    {
-            //        Text = "Hi " + firstName + " " + lastName + ", \n Thank you for your purchase!"
-            //    };
-
-            //    using (var client = new SmtpClient())
-            //    {
-            //        client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            //        client.Connect("smtp.gmail.com", 587, false);
-            //        client.AuthenticationMechanisms.Remove("XOAUTH2");
-            //        client.Authenticate("dandoan15", "renton2011");
-            //        client.Send(message);
-            //        client.Disconnect(true);
-            //    };
-
-
-
-            //    ////Set the html version of the message text
-            //    //builder.HtmlBody = string.Format(@"<p>Hey Alice,<br>
-            //    //<p>What are you up to this weekend? Monica is throwing one of her parties on
-            //    //Saturday and I was hoping you could make it.<br>
-            //    //<p>Will you be my +1?<br>
-            //    //<p>-- Joey<br>");
-
-            //    //message.Body = builder.ToMessageBody();
-
-            //    //using (var client = new SmtpClient())
-            //    //{
-            //    //    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            //    //    client.Connect("smtp.gmail.com", 587, false);
-            //    //    client.AuthenticationMechanisms.Remove("XOAUTH2");
-            //    //    client.Authenticate("dandoan15", "renton2011");
-            //    //    client.Send(message);
-            //    //    client.Disconnect(true);
-            //    //};
-
-            //    return RedirectToAction("Confirmation", newPurchaseOrder);
-
-            //}
-
-            return RedirectToAction("Confirmation");
+            return RedirectToAction("Confirmation", newPurchaseOrder);
 
         }
     }

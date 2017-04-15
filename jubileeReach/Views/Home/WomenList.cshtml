@@ -18,7 +18,7 @@
 <div id="page-content-wrapper">
     <div class="container-fluid">
         <br><h1 class="text-muted bread-crumb"> SHOP </h1>
-        <h1 class="bread-crumb2">/ MEN /<a asp-action="MensList" asp-route-sortOrder="@ViewBag.SalePriceSortParm">@Html.DisplayNameFor(model => model.SALE_PRICE)</a></h1>
+        <h1 class="bread-crumb2">/ WOMEN /<a asp-action="MensList" asp-route-sortOrder="@ViewBag.SalePriceSortParm">@Html.DisplayNameFor(model => model.SALE_PRICE)</a></h1>
         @*{int counter = 0;
                 @foreach (var item in Model){
                     counter++;
@@ -30,7 +30,7 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-3 image1">
-                    <a asp-action="productDetail" asp-route-id="@item.PRODUCTID"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>
+                    <a href="@Url.Action("productDetail", "Home", new { id = item.PRODUCTID })"> <img src="data:image;base64,@System.Convert.ToBase64String(item.IMG1)" class="img-responsive"> </a>
                     <div class="Brand">
                         @Html.DisplayFor(modelItem => item.BRAND)
                     </div>
