@@ -235,9 +235,10 @@ namespace jubileeReach.Controllers
 
         public ActionResult Checkout(int id)
         {
+            var product = db.PRODUCT.SingleOrDefault(m => m.PRODUCTID == id);
             //var product = _context.PRODUCT.SingleOrDefault(m => m.PRODUCTID == id);
             //return View(product);
-            return View();
+            return View(product);
         }
 
         [HttpPost]

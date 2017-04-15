@@ -311,6 +311,8 @@
     <Content Include="Views\Home\MenList.cshtml" />
     <Content Include="Views\Home\WomenList.cshtml" />
     <Content Include="Views\Home\productDetail.cshtml" />
+    <Content Include="Views\Home\Checkout.cshtml" />
+    <Content Include="Views\Shared\FooterOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
