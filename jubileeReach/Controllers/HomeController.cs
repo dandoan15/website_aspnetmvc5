@@ -317,7 +317,9 @@ namespace jubileeReach.Controllers
             //    return RedirectToAction("Confirmation", newPurchaseOrder);
 
             //}
-            return View();
+
+            return RedirectToAction("Confirmation");
+
         }
     }
 }

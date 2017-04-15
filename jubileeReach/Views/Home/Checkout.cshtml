@@ -1,11 +1,12 @@
 ﻿@model jubileeReach.Models.PRODUCT
 
 @{
-    Layout = "FooterOnly";
+    Layout = "~/Views/Shared/FooterOnly.cshtml";
     ViewData["Title"] = "Checkout Page";
 }
 
-<link href="~/css/JRCheckoutStyle.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/JRCheckoutStyle.css" rel="stylesheet" type="text/css">
+@*<script src="~/Scripts/bootstrap.min.js"></script>*@
 <script type="text/javascript">
     var monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
     var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -84,7 +85,9 @@
     <strong>Pick Up Information:</strong>
 </div>
 
-<form asp-action="Checkout" enctype="multipart/form-data" >
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     <div class="containter-fluid entries">
         <div class="form-group">
             <label class="col-md-3 control-label">First Name:</label>
@@ -129,7 +132,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label">Apt:</label>
             <div class="col-md-10" style="width:auto">
-                <input type="text" class="form-control" name="apartment" required />
+                <input type="text" class="form-control" name="apartment" />
                 <span class="text-danger" />
             </div>
         </div>
@@ -193,112 +196,195 @@
                 <span class="text-danger" />
             </div>
         </div>
-    </div>
+        </div>
 
-    <br></br>
+        <br></br>
 
-    @*<div class="container-fluid test">
-            <div class="container-fluid">
-                <div class="col-md-5">
+        <div class="form-group">
+            <button type="submit" value="Checkout" class="checkoutButton"><span>Checkout</span></button>
+        </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="Brand">
-                                BRAND: @Html.DisplayFor(modelItem => modelItem.BRAND)
-                            </div>
-                            <span class="type" id="demo2"><br></span><br>
-                            <div class="Size">
-                                SIZE: @Html.DisplayFor(modelItem => modelItem.ITEM_DESCRIPTION)
-                            </div>
-                        </div>
+        <div class="container-fluid Address">
+            <strong id=boldText>Jubilee REACH Thrift Store</strong> <br />
+            <strong>2301 148th AVE NE</strong> <br />
+            <strong>Bellevue, WA 98005</strong>
+        </div>
 
-                    </div><!-- end row -->
-                    <div class="row">
-                        <div class="col-md-12 bottom-rule">
-                            <div class="Price">
-                                SALE PRICE: @Html.DisplayFor(modelItem => modelItem.SALE_PRICE)
-                            </div>
-                        </div>
-                    </div><!-- end row -->
+        <div class="container-fluid dateSelection">
+            <div class="form-group">
+                <label class="col-md-6 control-label">Pick Up Date:</label>
+                <form action="" name="someform">
+                    <select id="dates"></select>
+                </form>
+            </div>
+        </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="description">
-                                <br>
-                                PRODUCT ID: @Html.DisplayFor(modelItem => modelItem.PRODUCTID)
-                            </span>
-                        </div>
-                    </div><!-- end row -->
+
+
+        <div class="container-fluid test3">
+            <div class="form-group">
+                <label class="col-md-6 control-label">Pick Up Time:</label>
+                <div class="col-md-10">
+                    <select class="form-control" id="Dept" name="department">
+                        <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+                        <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                        <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                        <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM </option>
+                    </select>
+                    <span class="text-danger" />
                 </div>
             </div>
-        </div>*@
+        </div>
+        }
 
-    @*
-        <div class="container-fluid test">
-            <label class="col-md-8 control-label">Item Detail:</label>
-            <div class="col-md-10">
-               <strong>BRAND:</strong> @Html.DisplayFor(modelItem => modelItem.BRAND)
-                <br />
-                <strong>ITEM DESCRIPTION:</strong> @Html.DisplayFor(modelItem => modelItem.ITEM_DESCRIPTION)
-                <br>
+        @*<form asp-action="Checkout" enctype="multipart/form-data" >
+            <div class="containter-fluid entries">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">First Name:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="firstName" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br> </br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Last Name:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="lastName" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br> </br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="email" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Address:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="address" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Apt:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="apartment" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">City:</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="city" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">State</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="stateLocation" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Zip / Postal</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="zipCode" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Credit Card</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="ccNum" placeholder="1234 5678 9876 5432" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">CVV</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="cvv" placeholder="007" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
+
+                <br></br>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Expiration Date</label>
+                    <div class="col-md-10" style="width:auto">
+                        <input type="text" class="form-control" name="expireDate" placeholder="MM/YY" required />
+                        <span class="text-danger" />
+                    </div>
+                </div>
             </div>
-            <br>
-        </div>
-    *@
-    @*<div class="container-fluid test">
-            <label class="col-md-8 control-label">Pick Up Address:</label>
-            <div class="col-md-10">
-                <p> Jubilee Reach Thrift Store </p>
-                <p> 2301 148th Ave NE Bellevue, WA 98005 <p>
-            </div>
-            <br>
-        </div>
 
-        <div class="container-fluid test2">
-            <label class="col-md-6 control-label">Pick Up Date:</label>
-            <div class="col-md-10">
-                <p> Pick up must be within two days of purchase at selected time below </p> <br>
-            </div>
-        </div>
-    *@
+            <br></br>*@
 
-    <div class="container-fluid Address">
-        <strong id=boldText>Jubilee REACH Thrift Store</strong> <br />
-        <strong>2301 148th AVE NE</strong> <br />
-        <strong>Bellevue, WA 98005
-    </div>
+        @*<div class="container-fluid Address">
+                    <strong id=boldText>Jubilee REACH Thrift Store</strong> <br />
+                    <strong>2301 148th AVE NE</strong> <br />
+                    <strong>Bellevue, WA 98005
+                </div>
 
-    <div class="container-fluid dateSelection">
-        <div class="form-group">
-            <label class="col-md-6 control-label">Pick Up Date:</label>
-            <form action="" name="someform">
-                <select id="dates"></select>
-            </form>
-        </div>
-    </div>
+                <div class="container-fluid dateSelection">
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">Pick Up Date:</label>
+                        <form action="" name="someform">
+                            <select id="dates"></select>
+                        </form>
+                    </div>
+                </div>
 
 
 
-    <div class="container-fluid test3">
-        <div class="form-group">
-            <label class="col-md-6 control-label">Pick Up Time:</label>
-            <div class="col-md-10">
-                <select class="form-control" id="Dept" name="department">
-                    <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
-                    <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
-                    <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
-                    <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM </option>
-                </select>
-                <span class="text-danger" />
-            </div>
-        </div>
-    </div>
+                <div class="container-fluid test3">
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">Pick Up Time:</label>
+                        <div class="col-md-10">
+                            <select class="form-control" id="Dept" name="department">
+                                <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+                                <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                                <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                                <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM </option>
+                            </select>
+                            <span class="text-danger" />
+                        </div>
+                    </div>
+                </div>
 
-    <div class="form-group">
-        <button type="submit" class="checkoutButton"><span>Checkout</span></button>
-    </div>
+                <div class="form-group">
+                    <button type="submit" class="checkoutButton"><span>Checkout</span></button>
+                </div>
 
-</form>
+            </form>*@
 
-
-<script src="js/bootstrap.min.js"></script>

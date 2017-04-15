@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/FooterOnly.cshtml";
+}
+
+<h2>Confirmation</h2>
+
+<p> HELLO WORLD!</p>
+@*<div class="demo">
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="main1">
+                <div class="greyHeading">
+                    <p> Order Confirmation: </p>
+                </div>
+            </div>
+        </div>
+
+        <hr id="linebreak1">
+
+        <br>
+
+        <div class="container">
+            <div class="main2">
+                <div class="greyHeading">
+                    <p>Hello @Html.DisplayFor(modelItem => item.FIRST_NAME) @Html.DisplayFor(modelItem => item.LAST_NAME)</p>
+                    <div class="plainText">
+                        <p>Thank you for shopping with us! We’ll notify you when your order will be ready for pickup at the Jubilee REACH Thrift Store in Bellevue, WA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div class="main3">
+                <div class="greyHeading">
+                    <p>Pickup Location</p>
+                </div>
+                <div class="plainText">
+                    <p>2301 148th Ave NE Bellevue, WA 98005</p>
+                </div>
+                <br>
+                <br>
+                <div class="greyHeading">
+                    <p>Hours</p>
+                    <div class="plainText">
+                        <p>Mon - Fri  9:30 AM - 8:00 PM</p>
+                        <p>Sat  10:30 AM - 8:00 PM</p>
+                        <p>Sun 11:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2688.762580377366!2d-122.14620398458995!3d47.6307461943033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906d0876999d15%3A0x57748f1ad10de633!2sJubilee+REACH+Thrift+Store!5e0!3m2!1sen!2sus!4v1491816526309" width="450" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="main4">
+                <div class="greyHeading">
+                    <p>Order Details</p>
+                </div>
+                <div class="plainText">
+                    <p>Order @Html.DisplayFor(modelItem => item.ORDER_ID) </p>
+                    <p>Placed on @Html.DisplayFor(modelItem => item.DATE_PURCHASED)</p>
+                    <p>Pick up time: @Html.DisplayFor(modelItem => item.PICK_UP_TIME) </p>
+                </div>
+                <br>
+                <br>
+                <div class="greyHeading">
+                    <p>Billing Address</p>
+                    <div class="plainText">
+                        <p>@Html.DisplayFor(modelItem => item.FIRST_NAME) @Html.DisplayFor(modelItem => item.LAST_NAME)</p>
+                        <p>1234 56th Avenue N Seattle, WA 98133</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="main5">
+                <div class="greyHeading">
+                    <p>Item Purchased:</p>
+                </div>
+                <br>
+                <div class="plainText">
+                    <br />
+                    <p>@Html.DisplayFor(modelItem => item.BRAND) @Html.DisplayFor(modelItem => item.ITEM_DESCRIPTION) </p>
+                </div>
+                <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="main6">
+                <div class="plainText">
+                    <p>Item(s) Total:</p>
+                    <p>Tax(9.5%):</p>
+                </div>
+                <div class="orangeHeading">
+                    <p>Total: @Html.DisplayFor(modelItem => item.SALE_PRICE)</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>*@
+
+<script src="js/bootstrap.min.js"></script>

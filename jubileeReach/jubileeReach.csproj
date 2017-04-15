@@ -313,6 +313,7 @@
     <Content Include="Views\Home\productDetail.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Shared\FooterOnly.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
