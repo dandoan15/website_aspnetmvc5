@@ -1,0 +1,275 @@
+﻿@* The DB object store within product which shown below. *@
+@model jubileeReach.Models.DEPARTMENT
+
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+
+@*<script type="text/javascript">
+            $(document).ready(function () {
+                var items = "<option value='0'>Select</option>";
+                $('CAT_ID').html(items);
+
+            });
+    </script>*@
+
+@*<h2>Create</h2>*@
+
++<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-3 control-label">
+            <h2>Create</h2>
+            <br />
+        </div>
+
+    </div>
+
+</div>
+
+@*<form method="post" asp-action="Create" asp-controller="PRODUCTsController" enctype="multipart/form-data"> *@
+<div id="page-content-wrapper">
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownListFor(m => m.DEPARTMENT_NAME, new SelectList(ViewBag.ListOfDepartment, "DEP_ID", "DEPARTMENT_NAME"))
+        @Html.HiddenFor(m => m.DEPARTMENT_NAME)
+
+        <select id="CAT_ID" name="CAT_ID"></select>
+
+
+    }
+    <form asp-action="UploadItem" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="DEPARTMENT_NAME" class="col-md-2 control-label">Department Name</label>
+                @Html.DropDownListFor(m => m.DEPARTMENT_NAME, new SelectList(ViewBag.ListOfDepartment, "DEP_ID", "DEPARTMENT_NAME"))
+                @Html.HiddenFor(m => m.DEPARTMENT_NAME)
+                <div class="col-md-10" style="width:auto">
+                    <select asp-for="DEP_ID" class="form-control" name="DEP_ID" asp-items="@(new SelectList(ViewBag.ListOfDepartment, "DEP_ID", "DEPARTMENT_NAME"))"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Categories</label>
+                <select id="CAT_ID" name="CAT_ID"></select>
+                <div class="col-md-10" style="width:auto">
+                    <select class="form-control" id="CAT_ID" name="CAT_ID" asp-for="CAT_ID" asp-items="@(new SelectList(string.Empty, "CAT_ID", "CAT_NAME"))"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Sizes</label>
+                <div class="col-md-10" style="width:auto">
+                    <select class="form-control" id="SIZE_ID" name="SIZE_ID" asp-for="SIZE_GROUP" asp-items="@(new SelectList(string.Empty, "SIZE_ID", "SIZE"))"></select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">COLOR</label>
+                <div class="col-md-10" style="width:auto">
+                    <select class="form-control" id="COLOR" name="color">
+                        <option value="">- Please select a COLOR -</option>
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
+                    </select>
+                    <span class="text-danger" />
+                </div>
+            </div>
+
+            @*<h4>PRODUCT</h4>
+                <hr />
+                <div class="text-danger"></div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">CATEGORY</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="CATEGORY" name="Category">
+                            <option value="">- Please select a CATEGORY -</option>
+                            <option value="T-Shirts">T-Shirt</option>
+                            <option value="Shirts">Shirts</option>
+                            <option value="Pants">Pants</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Sweaters">Sweaters</option>
+                            <option value="Jackets">Jackets</option>
+                            <option value="Suits">Suits</option>
+                        </select>
+                        <span class="text-danger" />
+                    </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">COLOR</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="COLOR" name="color">
+                            <option value="">- Please select a COLOR -</option>
+                            <option value="Red">Red</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Green">Green</option>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                        </select>
+                        <span class="text-danger" />
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    <label class="col-md-2 control-label">DEPARTMENT</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="Dept" name="department">
+                            <option value="">- Please select a DEPARTMENT -</option>
+                            <option value="Men">Men</option>
+                            <option value="Women">Women</option>
+                            <option value="Kids">Kids</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Housewares">Housewares</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Collectibles">Collectibles</option>
+                        </select>
+                        <span class="text-danger" />
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <label class="col-md-2 control-label">BRAND</label>
+                <div class="col-md-10" style="width:auto">
+                    <input type="text" class="form-control" name="BRAND" />
+                    <span class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">RETAIL PRICE</label>
+                <div class="col-md-10" style="width:auto">
+                    <input type="text" class="form-control" name="retail_price" />
+                    <span class="text-danger" />
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <label class="col-md-2 control-label">IS AVALIABLE</label>
+                    <div class="col-md-10">
+                        <input type="checkbox" name="IS_AVALIABLE" value="true"  />
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <label class="col-md-2 control-label">ITEM DESCRIPTION</label>
+                <div class="col-md-10" style="width:auto">
+                    <input type="text" class="form-control" rows="5" id="Description" name="item_description" />
+                    <span class="text-danger" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">SALE PRICE</label>
+                <div class="col-md-10" style="width:auto">
+                    <input type="text" class="form-control" name="sale_price" />
+                    <span class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">QUALITY</label>
+                <div class="col-md-10" style="width:auto">
+                    <select class="form-control" id="quality" name="quality">
+                        <option value="">- Please select a Quality -</option>
+                        <option value="Damaged">Damaged</option>
+                        <option value="Heavily Used">Heavily Used</option>
+                        <option value="Lightly Used">Lightly Used</option>
+                        <option value="Like New">Like New</option>
+                    </select>
+                    <span class="text-danger" />
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <label class="col-md-2 control-label">SIZE</label>
+                    <div class="col-md-10">
+                        <select class="form-control" id="size" name="size">
+                            <option value="">- Please select a Size -</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                        <span class="text-danger" />
+                    </div>
+                </div>*@
+            @*<div class="form-group">
+                    <label class="col-md-2 control-label">SIZE</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="size" />
+                        <span class="text-danger" />
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="file1" multiple />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="file2" multiple />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="file3" multiple />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="file4" multiple />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div> <!--End of form-horizontal-->
+    </form>
+
+    <div>
+        <a asp-controller="Admin" asp-action="Index">Back to List</a>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#DEPARTMENT_NAME').change(function () {
+                var url = '@Url.Content("~/")' + "Admin/GetCategories";
+                var ddlsource = "#DEPARTMENT_NAME";
+                $.getJSON(url, { DEP_ID: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    $('#CAT_ID').empty();
+                    $.each(data, function (i, category) {
+                        console.log(category[i]);
+                        items += "<option value='" + category.value + "'>" + category.text + "</option>";
+                        console.log(items);
+                    });
+                    $('#CAT_ID').html(items);
+
+                });
+
+            });
+            $('#CAT_ID').change(function () {
+                var url = '@Url.Content("~/")' + "Admin/GetSizes";
+                var ddlsource = "#CAT_ID";
+                $.getJSON(url, { CAT_ID: $(ddlsource).val() }, function (data) {
+                    var items = '';
+                    $('#SIZE_ID').empty();
+                    $.each(data, function (i, category) {
+                        items += "<option value='" + category.value + "'>" + category.text + "</option>";
+                    });
+                    $('#SIZE_ID').html(items);
+
+                });
+
+            });
+
+
+        });
+    </script>
+</div>

@@ -33,9 +33,13 @@
                 <br>
                 <h1><strong>Hello, Admin</strong></h1>
                 <br>
-                <a asp-area="" asp-controller="Admin" asp-action="Alerts" class="alert">Alerts<span class="badge">1</span></a>
-                <li class="other"><a asp-area="" asp-controller="Admin" asp-action="InventoryAdjustment">Inventory Adjustment</a></li>
-                <li class="other"><a asp-area="" asp-controller="Admin" asp-action="ManageAccounts">Manage Accounts</a></li>
+                @*<li>@Html.ActionLink("WOMEN", "WomenList", "Home")</li>*@
+                <li class="other">@Html.ActionLink("Alerts", "Alerts", "Admin")</li>
+                @*<a asp-area="" asp-controller="Admin" asp-action="Alerts" class="alert">Alerts<span class="badge">1</span></a>*@
+                <li class="other">@Html.ActionLink("Inventory Adjustment", "InventoryAdjustment", "Admin")</li>
+                <li class="other">@Html.ActionLink("Manage Accounts", "ManageAccounts", "Admin")</li>
+                @*<li class="other"><a asp-area="" asp-controller="Admin" asp-action="InventoryAdjustment">Inventory Adjustment</a></li>*@
+                @*<li class="other"><a asp-area="" asp-controller="Admin" asp-action="ManageAccounts">Manage Accounts</a></li>*@
                 <li class="other"><a href="#"><strong>Edit Pages</strong></a></li>
                 <li class="subpage"><a asp-area="" asp-controller="Admin" asp-action="Index"><strong> &nbsp; Landing Page</strong></a></li>
                 <li class="subpage"><a href="#">&nbsp; Page 1</a></li>
